@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Mystery Box Offer</title>
+        <style>
+            .box {
+                display: inline-block;
+                margin: 10px;
+                padding: 20px;
+                background-color: #eee;
+                cursor: pointer;
+                border-radius: 10px;
+                font-size: 20px;
+                text-align: center;
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>🎁 Mystery Box Offer 🎁</h2>
+        <p>1 Pick a number between 1 and 10 and see what discount you get!</p>
+
+        <div class="box" onclick="reveal(this, '40%')">2</div>
+        <div class="box" onclick="reveal(this, '65%')">5</div>
+        <div class="box" onclick="reveal(this, '20%')">7</div>
+        <div class="box" onclick="reveal(this, '85%')">9</div>
+        <div class="box" onclick="reveal(this, '50%')">10</div>
+        <div class="box" onclick="reveal(this, '40%')">2</div>
+        <div class="box" onclick="reveal(this, '45%')">5</div>
+        <div class="box" onclick="reveal(this, '10%')">7</div>
+        <div class="box" onclick="reveal(this, '100%')">9</div>
+        <div class="box" onclick="reveal(this, '92%')">10</div>
+        <script>
+    function reveal(element, discount) {
+                element.innerHTML = discount;
+                element.style.backgroundColor = '#cfc';
+            }</script>
+    </body>
+</html>
+</body>
+</html>
