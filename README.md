@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mystery Offer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      margin-top: 10px;
+      font-size: 28px;
+    }
+    .countdown {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #fbbf24;
+    }
+    .boxes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .box {
+      width: 70px;
+      height: 70px;
+      background-color: #334155;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .box:hover {
+      background-color: #475569;
+    }
+    .offer {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #34d399;
+    }
+    @media (max-width: 500px) {
+      .box {
+        width: 60px;
+        height: 60px;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎁 Your Mystery Offer Awaits!</h1>
+  <div class="countdown" id="countdown">Offer expires in 03:00</div>
+
+  <div class="boxes">
+    <div class="box" onclick="revealOffer(1)">1</div>
+    <div class="box" onclick="revealOffer(2)">2</div>
+    <div class="box" onclick="revealOffer(3)">3</div>
+    <div class="box" onclick="revealOffer(4)">4</div>
+    <div class="box" onclick="revealOffer(5)">5</div>
+  </div>
+
+  <div class="offer" id="offerText"></div>
+
+  <script>
+    const offers = [
+      "🎉 You won 120% Bonus!",
+      "💰 100 Free Spins just for you!",
+      "🎯 Cashback up to 30%",
+      "🪙 Double Coins Activated!",
+      "🎊 Secret Surprise Unlocked!"
+    ];
+
+    function revealOffer(num) {
+      const selectedOffer = offers[Math.floor(Math.random() * offers.length)];
+      document.getElementById("offerText").innerText = selectedOffer;
+    }
+
+    let time = 180;
+    const countdown = setInterval(() => {
+      if (time <= 0) {
+        clearInterval(countdown);
+        document.getElementById("countdown").innerText = "⛔ Offer expired!";
+      } else {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        document.getElementById("countdown").innerText =
+          `Offer expires in ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+        time--;
+      }
+    }, 1000);
+  </script>
+</body>
